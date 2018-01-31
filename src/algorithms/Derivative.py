@@ -19,5 +19,9 @@ class Function():
 
 	if (str(j - 1) + "-" + str(h)) not in Ns:
 	    Ns[str(j - 1) + "-" + str(h)] = N(j - 1, h, x)
+	
+	return Ns[str(j - 1) + "-" + str(h / 2)] + ( ( Ns[str(j - 1) + "-" + str(h / 2)] - Ns[str(j - 1) + "-" + str(h)] ) / ( np.power(4, j - 1) - 1 ) )
 
-    return Ns[str(j - 1) + "-" + str(h / 2)] + ( ( Ns[str(j - 1) + "-" + str(h / 2)] - Ns[str(j - 1) + "-" + str(h)] ) / ( np.power(4, j - 1) - 1 ) )
+    def __del__(self):
+	Ns.clear()
+	
